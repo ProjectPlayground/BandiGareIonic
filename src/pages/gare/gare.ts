@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import {DettagliGaraPage} from '../dettagli-gara/dettagli-gara'
 
@@ -16,9 +16,13 @@ import {DettagliGaraPage} from '../dettagli-gara/dettagli-gara'
 export class GarePage {
 
   gare: FirebaseListObservable<any[]>;
-  constructor(af: AngularFire, public navCtrl: NavController) {
+    constructor(af: AngularFire, public navCtrl: NavController, public loadingCtrl:LoadingController) {
+    let loader = this.loadingCtrl.create({
+      content: "Sto caricando..."
+    });
+    loader.present();
     this.gare = af.database.list('/gare');
-    console.log(this.gare);
+    this.gare.subscribe(() => loader.dismissAll());
   }
 
   visible = false;

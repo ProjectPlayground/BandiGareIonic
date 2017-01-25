@@ -1,0 +1,46 @@
+
+
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Filtra Gare</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<h3>Pagina delle gare filtrate</h3>
+<ion-list>
+  <ion-item>
+    <ion-label>Provincia</ion-label>
+    <ion-select [(ngModel)]="provincia" (ionChange)="filterBy(provincia)">
+      <ion-option value="RM">Roma</ion-option>
+      <ion-option value="BA">Bari</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
+<ion-list>
+  <ion-item *ngFor="let gara of gare | async">
+    <ion-thumbnail item-left>
+      <img src="../../assets/image/Immagine.jpg">
+    </ion-thumbnail>
+    <h2>{{gara.oggetto}}</h2>
+    <p>{{gara.ente}}</p>
+    <p>{{gara.provincia}}</p>
+    <p>
+    <button (click)="toggle(gara.$key)">
+       <ion-icon name="thumbs-down" *ngIf="!visible"></ion-icon>
+       <ion-icon name="thumbs-up" *ngIf="visible"></ion-icon>
+    </button>
+    </p>
+    <button ion-button clear item-right (click)="apriDettaglio(gara)">View</button>
+  </ion-item>
+</ion-list>
+
+
+</ion-content>

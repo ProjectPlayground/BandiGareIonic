@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ricerca Gare</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+<ion-item>
+  <ion-label>Tipologia</ion-label>
+  <ion-select  [(ngModel)]="selectedTipologia.id"(ionChange)="onSelectTipologia(selectedTipologia.id)">
+
+    <ion-option *ngFor="let tipologia of tipologie" value= {{tipologia.id}}>{{tipologia.name}}</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+  <ion-label>Categoria</ion-label>
+  <ion-select>
+    <ion-option *ngIf='selectedTipologia.id == 0' value="0">--Selezione la tipologia--</ion-option>
+    <ion-option *ngFor="let categoria of categorie " value= {{categoria.id}}>{{categoria.name}}</ion-option>
+  </ion-select>
+</ion-item>
+
+
+<ion-item>
+  <ion-label>Provincie</ion-label>
+  <ion-select>
+
+    <ion-option *ngFor="let provincia of provincie" value= {{provincia.id}}>{{provincia.name}}</ion-option>
+  </ion-select>
+</ion-item>
+
+
+
+</ion-content>

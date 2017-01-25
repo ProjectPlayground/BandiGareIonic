@@ -6,7 +6,8 @@ import { Page2 } from '../pages/page2/page2';
 import { GarePage } from '../pages/gare/gare';
 import { LoginPage } from '../pages/login/login';
 import { Auth } from '@ionic/cloud-angular';
-
+import { FilterGarePage } from '../pages/filter-gare/filter-gare';
+import { RicercaGarePage } from '../pages/ricerca-gare/ricerca-gare';
 import { IntroPage } from '../pages/intro/intro';
 import { LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
@@ -33,7 +34,9 @@ export class MyApp {
 
       { title: 'Home', component: Page1 },
       { title: 'Page Two', component: Page2 },
-      { title: 'Gare', component: GarePage }
+      { title: 'Gare', component: GarePage },
+      { title: 'Filtra Gare', component: FilterGarePage },
+      { title: 'Ricerca Gare', component: RicercaGarePage }
     ];
 
   }

@@ -11,6 +11,8 @@ import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { IntroPage } from '../pages/intro/intro';
+import { FilterGarePage } from '../pages/filter-gare/filter-gare';
+import { RicercaGarePage } from '../pages/ricerca-gare/ricerca-gare';
 import { Storage } from '@ionic/storage';
 
 
@@ -38,7 +40,9 @@ export const firebaseConfig = {
     DettagliGaraPage,
     LoginPage,
     HomePage,
-    IntroPage
+    IntroPage,
+    FilterGarePage,
+    RicercaGarePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -54,7 +58,9 @@ export const firebaseConfig = {
     DettagliGaraPage,
     LoginPage,
     HomePage,
-    IntroPage
+    IntroPage,
+    FilterGarePage,
+    RicercaGarePage
   ],
   providers: [
               {provide: ErrorHandler, useClass: IonicErrorHandler},
